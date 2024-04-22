@@ -11,7 +11,7 @@ let serie1 = document.getElementById("serie1");
 
 let robot = "";
 
-
+const { series , id , name , weapon , avatar} = robots[0];
 
 console.log(typeof(id));
 
@@ -29,4 +29,42 @@ serie2.innerHTML = robots[2].series;
 
 console.log(robots)
 
+const getRobotById = (id = "009") => {
+    return robots.find((robot) => {
+        return robot.id === id;
+    });
+}
+
+const getRobotBySeries = (series = 2) => {
+    return robots.filter((robot) => {
+        return robot.series === series;
+    });
+};
+
+const getRobots = robots.map((robot) => {
+    let tarjeta = `
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${robot.name}</h5>
+                <img src="${robot.avatar}">
+            </div>
+        </div>
+    `;
+
+    return contenedor.innerHTML = tarjeta;
+    
+});
+
+getRobots();
+
+//contenedor.innerHTML = getRobots.join("");
+
+
+for(robot of robots){
+    console.log("----"+robot)
+}
+
+console.log(getRobotById("033"));
+
+console.log(getRobotBySeries(2));
 
